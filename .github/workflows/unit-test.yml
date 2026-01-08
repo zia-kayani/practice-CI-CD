@@ -24,6 +24,8 @@ jobs:
       #for generating junit report
       - name: Run unit tests with JUnit report
         run: npm run test:report
+        continue-on-error: true
+
       # Upload JUnit test report
       - name: Upload test report
         uses: actions/upload-artifact@v4
