@@ -10,7 +10,6 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -28,21 +27,20 @@ jobs:
         
       - name: Check coverage
         run: npm test -- --coverage
-  #to send the mail based on failure of test job
-  notify:
-  runs-on: ubuntu-latest
-  needs: test
-  if: failure()  
-  steps:
-    - name: Send email
-      uses: dawidd6/action-send-mail@v3
-      with:
-        server_address: smtp.gmail.com
-        server_port: 465
-        username: ${{ secrets.SMTP_USERNAME }}
-        password: ${{ secrets.SMTP_PASSWORD }}
-        subject: "CI Job Failed"
-        body: "The CI job failed. Please check the logs."
-        to: "ziakayani888@gmail.com"
-        from: "ziakayani.official@gmail.com"
 
+  notify:
+    runs-on: ubuntu-latest
+    needs: test
+    if: failure()
+    steps:
+      - name: Send email
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: smtp.gmail.com
+          server_port: 465
+          username: ${{ secrets.SMTP_USERNAME }}
+          password: ${{ secrets.SMTP_PASSWORD }}
+          subject: "CI Job Failed"
+          body: "The CI job failed. Please check the logs."
+          to: "ziakayani888@gmail.com"
+          from: "ziakayani.official@gmail.com"
