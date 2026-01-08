@@ -2,9 +2,9 @@ name: Node.js Unit Tests
 
 on:
   push:
-    branches: [ main ]
+    branches: [ qa-github-actions ]
   pull_request:
-    branches: [ main ]
+    branches: [ qa-github-actions ]
   workflow_dispatch: # manual trigger
 
 jobs:
