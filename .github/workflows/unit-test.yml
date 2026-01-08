@@ -26,7 +26,7 @@ jobs:
         run: npm run test:report
       # Upload JUnit test report
       - name: Upload test report
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: test-report
           path: junit.xml
@@ -35,7 +35,7 @@ jobs:
         run: npm test -- --coverage
       # Upload coverage report
       - name: Upload coverage report
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: coverage-report
           path: coverage
