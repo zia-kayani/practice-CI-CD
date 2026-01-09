@@ -5,8 +5,10 @@
   "main": "index.js",
   "scripts": {
     "test": "jest --coverage",
-    "test:report": "jest --ci --reporters=default --reporters=jest-junit"
-
+    "test:report": "jest --ci --reporters=default --reporters=jest-junit",
+    "test:allure": "playwright test --reporter=list,allure-playwright",
+    "allure:serve": "allure serve allure-results",
+    "allure:generate": "allure generate allure-results --clean -o allure-report"
   },
   "repository": {
     "type": "git",
@@ -22,6 +24,8 @@
   "homepage": "https://github.com/zia-kayani/practice-CI-CD#readme",
   "devDependencies": {
     "@eslint/js": "^9.39.2",
+    "allure-commandline": "^2.36.0",
+    "allure-playwright": "^3.4.4",
     "eslint": "^9.39.2",
     "globals": "^17.0.0",
     "jest": "^30.2.0",
