@@ -25,10 +25,10 @@ jobs:
       # Run tests with Allure reporter
       - name: Run tests with Allure
         run: npm run test:allure
-        continue-on-error: true
 
       # Generate Allure HTML report
       - name: Generate Allure Report
+        if: always()
         run: npm run allure:generate
 
       # Upload Allure report as artifact
