@@ -22,4 +22,4 @@ jobs:
       run: npm install -g newman
 
     - name: Run Postman Collection
-      run: newman run api-tests/collections/newman_practice.json
+      run: newman run practice-CI-CD/api-tests/collections/newman_practice.json
