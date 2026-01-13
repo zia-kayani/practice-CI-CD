@@ -1,0 +1,34 @@
+{
+  "id": "qa-env-123",
+  "name": "QA Environment",
+  "values": [
+    {
+      "key": "baseUrl",
+      "value": "https://jsonplaceholder.typicode.com",
+      "enabled": true
+    },
+    {
+      "key": "authToken",
+      "value": "fake-token-for-practice",
+      "enabled": true
+    },
+    {
+      "key": "userId",
+      "value": "1",
+      "enabled": true
+    },
+    {
+      "key": "newUserName",
+      "value": "John Doe",
+      "enabled": true
+    },
+    {
+      "key": "newUserEmail",
+      "value": "john.doe@example.com",
+      "enabled": true
+    }
+  ],
+  "_postman_variable_scope": "environment",
+  "_postman_exported_at": "2026-01-12T00:00:00.000Z",
+  "_postman_exported_using": "Postman/10.18.1"
+}
