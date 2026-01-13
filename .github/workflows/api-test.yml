@@ -13,11 +13,11 @@ jobs:
     - name: Checkout repo
       uses: actions/checkout@v4
 
-    - name: Setup Node.js
+    - name: Setup Node.js 
       uses: actions/setup-node@v4
       with:
         node-version: 18
-        
+
     - name: List repo files
       run: ls -R
 
@@ -25,5 +25,9 @@ jobs:
     - name: Install Newman
       run: npm install -g newman
 
+    # - name: Run Postman Collection
+    #   run: newman run practice-CI-CD/api-tests/collections/newman_practice.json
+
     - name: Run Postman Collection
-      run: newman run practice-CI-CD/api-tests/collections/newman_practice.json
+      run: newman run api-tests/collections/newman_practice
+
