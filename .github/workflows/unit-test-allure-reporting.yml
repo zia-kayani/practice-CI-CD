@@ -1,4 +1,4 @@
-name: Node.js Unit Tests
+name: Node.js Unit Tests with Allure
 
 on:
   # push:
@@ -21,26 +21,22 @@ jobs:
 
       - name: Install dependencies
         run: npm ci
-      #for generating junit report
-      - name: Run unit tests with JUnit report
-        run: npm run test:report
-        continue-on-error: true
 
-      # Upload JUnit test report
-      - name: Upload test report
+      # Run tests with Allure reporter
+      - name: Run tests with Allure
+        run: npm run test:allure
+
+      # Generate Allure HTML report
+      - name: Generate Allure Report
+        if: always()
+        run: npm run allure:generate
+
+      # Upload Allure report as artifact
+      - name: Upload Allure Report
         uses: actions/upload-artifact@v4
         with:
-          name: test-report
-          path: junit.xml
-      #for coverage report
-      - name: Check coverage
-        run: npm test -- --coverage
-      # Upload coverage report
-      - name: Upload coverage report
-        uses: actions/upload-artifact@v4
-        with:
-          name: coverage-report
-          path: coverage
+          name: allure-report
+          path: allure-report
 
   notify:
     runs-on: ubuntu-latest
@@ -55,10 +51,9 @@ jobs:
           username: ${{ secrets.SMTP_USERNAME }}
           password: ${{ secrets.SMTP_PASSWORD }}
           subject: "CI Job Failed"
-          # included the test report link in the email body
           body: | 
             The CI job failed.
-            You can download the test report here:
+            You can download the Allure report here:
             ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
           to: "ziakayani888@gmail.com"
           from: "ziakayani.official@gmail.com"
