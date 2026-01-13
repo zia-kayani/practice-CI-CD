@@ -1,11 +1,11 @@
 name: Node.js Unit Tests with Allure
 
-# on:
-#   push:
-#     branches: [ qa-github-actions ]
-#   pull_request:
-#     branches: [ qa-github-actions ]
-#   workflow_dispatch:
+on:
+  # push:
+  #   branches: [ qa-github-actions ]
+  # pull_request:
+  #   branches: [ qa-github-actions ]
+  workflow_dispatch:
 
 jobs:
   test:

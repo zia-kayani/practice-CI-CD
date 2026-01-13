@@ -5,7 +5,7 @@ on:
   #   branches: [ qa-github-actions ]
   # pull_request:
   #   branches: [ qa-github-actions ]
-  # workflow_dispatch:
+  workflow_dispatch:
 
 jobs:
   test:
