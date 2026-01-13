@@ -1,0 +1,25 @@
+name: Run Postman Collection with Newman
+
+on:
+  push:
+    branches: [ qa-github-actions ]
+  workflow_dispatch:
+
+jobs:
+  run-postman-tests:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repo
+      uses: actions/checkout@v4
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: 18
+
+    - name: Install Newman
+      run: npm install -g newman
+
+    - name: Run Postman Collection
+      run: newman run api-tests/collections/Newman_Practice.json
